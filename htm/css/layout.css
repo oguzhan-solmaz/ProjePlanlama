@@ -52,7 +52,7 @@ header .banner {
    vertical-align: middle;
    margin: 0 auto;
    width: 85%;
-   padding-bottom: 30px;s
+   padding-bottom: 30px;
    text-align: center;
 }
 
@@ -498,6 +498,10 @@ ul#nav li.current a { color: #F06000; }
    color: #c6c7c7;
    margin-bottom: 0;
 }
+* {box-sizing:border-box}
+
+ 
+
 
 /* on hover */
 .portfolio-item:hover .overlay {
@@ -999,4 +1003,6 @@ footer .social-links li:first-child { margin-left: 0; }
  	border-radius: 100%;
 }
 #go-top a:hover { background-color: #0F9095; }
+
+
 
