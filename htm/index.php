@@ -1,5 +1,30 @@
 <?php
 include './nedmin/connect.php';
+//fetch_skills
+$fetch_skill = $db -> prepare('SELECT * FROM skills WHERE skill_id=1');
+$fetch_skill -> execute();
+$fetch_s = $fetch_skill -> fetch(PDO::FETCH_ASSOC);
+
+//fetch_info
+$fetch_info = $db -> prepare('SELECT * FROM education_info WHERE edu_id=1');
+$fetch_info -> execute();
+$fetch_i = $fetch_info -> fetch(PDO::FETCH_ASSOC);
+
+//fetch_contact
+$fetch_contact = $db -> prepare('SELECT * FROM contact_info WHERE contact_id=1');
+$fetch_contact -> execute();
+$fetch_c = $fetch_contact -> fetch(PDO::FETCH_ASSOC);
+
+//fetch_about
+$fetch_about = $db -> prepare('SELECT * FROM about_me WHERE about_id=1');
+$fetch_about -> execute();
+$fetch_a = $fetch_about -> fetch(PDO::FETCH_ASSOC);
+
+//fetch_settings
+$fetch_settings = $db -> prepare('SELECT * FROM site_settings WHERE settings_id=1');
+$fetch_settings -> execute();
+$fetch_se = $fetch_settings -> fetch(PDO::FETCH_ASSOC);
+
 
 ?>
 <!DOCTYPE html>
@@ -11,7 +36,7 @@ include './nedmin/connect.php';
    <!--- Basic Page Needs
    ================================================== -->
    <meta charset="utf-8">
-	<title>Ceevee - Free Responsive HTML5/CSS3 Template</title>
+	<title><?php echo $fetch_se['site_title']; ?></title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 
@@ -60,18 +85,18 @@ include './nedmin/connect.php';
 
       <div class="row banner">
          <div class="banner-text">
-            <h1 class="responsive-headline">Ben Oğuzhan Solmaz.</h1>
-            <h3>Merhaba ben Oğuzhan Solmaz. <span>İnönü Üniversitesinde birinci sınıf</span>, <span>Bilgisayar Mühendisliği</span> öğrencisiyim. 
+            <h1 class="responsive-headline"><?php echo $fetch_se['title']; ?></h1>
+            <h3><?php echo $fetch_se['subtitle']; ?>  
              
             Daha fazlası için <a class="smoothscroll" href="#about">Hakkımda</a>.</h3>
             <hr />
             <ul class="social">
-               <li><a href="https://github.com/oguzhan-solmaz"><img src="./images/g.png" style="width: 40px;" alt="github"></a></li>
-               <li><a href="https://twitter.com/oguzhansolmaz20"><img src="./images/t.png" style="width: 40px;"></a></li>
-               <li><a href="#"><img src="./images/y.png" style="width: 40px;"></a></li>
-               <li><a href="https://www.instagram.com/oguz_solmaz/?hl=tr"><img src="./images/i.png" style="width: 40px;"></a></li>
-               <li><a href="https://tr-tr.facebook.com/oguzhan.solmaz.353"><img src="./images/f.png" style="width: 40px;"></a></li>
-               <li><a href="#"><img src="./images/tw.png" style="width: 40px;"></a></li>
+               <li><a href="https://github.com/<?php echo $fetch_a['github']; ?>"><img src="./images/g.png" style="width: 40px;" alt="github"></a></li>
+               <li><a href="https://twitter.com/<?php echo $fetch_a['twitter']; ?>"><img src="./images/t.png" style="width: 40px;"></a></li>
+               <li><a href="https://www.youtube.com/channel/<?php echo $fetch_a['youtube']; ?>"><img src="./images/y.png" style="width: 40px;"></a></li>
+               <li><a href="https://www.instagram.com/<?php echo $fetch_a['instagram']; ?>/?hl=tr"><img src="./images/i.png" style="width: 40px;"></a></li>
+               <li><a href="https://tr-tr.facebook.com/<?php echo $fetch_a['facebook']; ?>"><img src="./images/f.png" style="width: 40px;"></a></li>
+               <li><a href="https://www.twitch.tv/<?php echo $fetch_a['twitch']; ?>"><img src="./images/tw.png" style="width: 40px;"></a></li>
                
             </ul>
          </div>
@@ -90,7 +115,7 @@ include './nedmin/connect.php';
 
       <div class="row">
 
-         <div class="three columns">
+         <div class="three columns" >
 
             <img class="profile-pic"  src="images/inonu1.jpg "style="width:150px;height: 200px"  alt="" style />
 
@@ -98,9 +123,9 @@ include './nedmin/connect.php';
 
          <div class="nine columns main-col">
 
-            <h2>HAKKIMDA</h2>
+            <h2><?php echo $fetch_a['about_title']; ?></h2>
 
-            <p>Merhaba ben Oğuzhan Solmaz 20 yaşındayım. İnönü Üniversitesi Bilgisayar Mühendisliği birinci sınıf öğrencisiyim. Boş zamanlarımı kitap okuyarak, film izleyerek veya oyun oynayarak değerlendiriyorum. Yaptığım kodlamalardan bazılarını githuba ekliyorum. Github adresimi aşağıdan bulabilirsin.
+            <p><?php echo $fetch_a['biyografi']; ?>
             </p>
 
             <div class="row">
@@ -141,7 +166,7 @@ include './nedmin/connect.php';
       <div class="row education">
 
          <div class="three columns header-col">
-            <h1><span>Eğitim</span></h1>
+            <h1><span><?php echo $fetch_i['edu_title']; ?></span></h1>
          </div>
 
          <div class="nine columns main-col">
@@ -151,11 +176,9 @@ include './nedmin/connect.php';
                <div class="twelve columns">
 
                   <h3>Lise</h3>
-                  <p class="info">Cumhuriyet Anadolu Lisesi <span>&bull;</span> <em class="date"></em></p>
+                  <p class="info"><?php echo $fetch_i['high_school']; ?> <span>&bull;</span> <em class="date"></em></p>
 
-                  <p>
-                     https://malatyacal.meb.k12.tr
-                  </p>
+                  
 
                </div>
 
@@ -166,11 +189,9 @@ include './nedmin/connect.php';
                <div class="twelve columns">
 
                   <h3>Üniversite</h3>
-                  <p class="info">İnönü Üniversitesi <span>&bull;</span> <em class="date"></em></p>
+                  <p class="info"><?php echo $fetch_i['universty']; ?> <span>&bull;</span> <em class="date"></em></p>
 
-                  <p>
-                  İnönü Üniversitesi birinci sınıf Bilgisayar Mühendisliği öğrencisiyim.
-                  </p>
+                  
 
                </div>
 
@@ -182,14 +203,14 @@ include './nedmin/connect.php';
 
 
       
-
+      
 
       <!-- Skills
       ----------------------------------------------- -->
       <div class="row skill">
 
          <div class="three columns header-col">
-            <h1><span>Yetenekler</span></h1>
+            <h1><span><?php echo $fetch_s['title']; ?></span></h1>
          </div>
 
          <div class="nine columns main-col">
@@ -199,12 +220,12 @@ include './nedmin/connect.php';
 				<div class="bars">
 
 				   <ul class="skills">
-					   <li><span class="bar-expand photoshop"></span><em>CSS</em></li>
-                  <li><span class="bar-expand illustrator"></span><em>Java</em></li>
-						<li><span class="bar-expand wordpress"></span><em>Html</em></li>
-						<li><span class="bar-expand css"></span><em>C</em></li>
-						<li><span class="bar-expand html5"></span><em>Problem Çözme</em></li>
-                  <li><span class="bar-expand jquery"></span><em>Pyhton</em></li>
+					   <li><span class="bar-expand photoshop"></span><em><?php echo $fetch_s['first_skill']; ?></em></li>
+                  <li><span class="bar-expand illustrator"></span><em><?php echo $fetch_s['second_skill']; ?></em></li>
+						<li><span class="bar-expand wordpress"></span><em><?php echo $fetch_s['third_skill']; ?></em></li>
+						<li><span class="bar-expand css"></span><em><?php echo $fetch_s['forth_skill']; ?></em></li>
+						<li><span class="bar-expand html5"></span><em><?php echo $fetch_s['fifth_skill']; ?></em></li>
+                  <li><span class="bar-expand jquery"></span><em><?php echo $fetch_s['sixth_skill']; ?></em></li>
 					</ul>
 
 				</div><!-- end skill-bars -->
@@ -648,13 +669,13 @@ include './nedmin/connect.php';
 
                <div class="widget widget_contact">
 
-					   <h4>İletişim Bilgileri</h4>
+					   <h4> <?php echo $fetch_c['content']; ?></h4>
 					   <p class="address">
 						  
 						   
-						   Cengiz Topel Caddesi,Malatya<br>
-						   <a href="tel:+90-531-300-0544">GSM:531 300 05 44</a>
-                     <a href="mailto:oguzhan_solmazz@hotmail.com">oguzhan_solmazz@hotmail.com</a>
+                     <?php echo $fetch_c['adress']; ?><br>
+						   <a href="tel:+90-531-300-0544"><?php echo $fetch_c['gsm']; ?></a>
+                     <a href="mailto:<?php echo $fetch_c['email']; ?>"><?php echo $fetch_c['email']; ?></a>
                      
 					   </p>
 
@@ -692,9 +713,9 @@ include './nedmin/connect.php';
             </ul>
 
             <ul class="copyright">
-               <li>&copy; 2014 CeeVee</li>
-               <li>Design by <a title="Styleshout" href="http://www.styleshout.com/">Styleshout</a></li>
-               <li>Sponsored by <a rel="nofollow" href="http://www.a2hosting.com/?utm___source=styleshoutdemo&utm_medium=__cpm&utm_content=&utm_campaign=">A2Hosting</a></li>
+               <li>&copy; 2021</li>
+               <li> <?php echo $fetch_c['copyright']; ?> </li>
+               
             </ul>
 
          </div>

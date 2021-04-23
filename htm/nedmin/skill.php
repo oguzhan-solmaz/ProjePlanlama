@@ -1,6 +1,15 @@
 <?php
 include 'header.php';
 
+$check_skill = $db -> prepare("SELECT * FROM skills");
+$check_skill -> execute();
+$control_skill = $check_skill->rowCount();
+
+$fetch_skill = $db->prepare("SELECT * FROM skills WHERE skill_id=1");
+$fetch_skill->execute();
+
+$fetch = $fetch_skill->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 <!-- page content -->
@@ -21,7 +30,38 @@ include 'header.php';
                  
                   <div class="x_content">
 
-                    <form class="form-horizontal form-label-left" novalidate>
+                    <?php if(@$_GET['insert'] =='ok'){ 
+			            	?>
+				                <div class="alert alert-info alert-dismissible fade in" role="alert">
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                           </button>
+                           <strong>Başarılı</strong> Veriler başarılı şekilde eklendi.
+                        </div>
+				            <?php } elseif(@$_GET['insert'] =='no'){ ?>
+				                <div class="alert alert-info alert-dismissible fade in" role="alert">
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                           </button>
+                           <strong>Hata</strong> Bir sorunla karşılaşıldı.
+				                </div>
+                    
+                    <?php } elseif(@$_GET['update'] =='ok'){ ?>
+				                <div class="alert alert-info alert-dismissible fade in" role="alert">
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                           </button>
+                           <strong>Başarılı</strong> Veriler başarılı şekilde güncellendi.
+				                </div>
+                    
+                    <?php } elseif(@$_GET['update'] =='no'){ ?>
+				                <div class="alert alert-info alert-dismissible fade in" role="alert">
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                           </button>
+                           <strong>Hata</strong> Bir sorunla karşılaşıldı.
+				                </div>
+                    <?php } ?>
+                    
+                        
+
+                    <form class="form-horizontal form-label-left" action="process.php" method="POST">
 
                       
                       
@@ -30,54 +70,55 @@ include 'header.php';
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Sayfa Başlığı 
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Sayfa Başlığı" required="required" type="text">
+                            <input class="form-control col-md-7 col-xs-12" value="<?php echo $fetch['title']; ?>" name="title"  required="required" type="text">
                         </div>
                       </div>
                      
 
                       <hr>
+                      
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">CSS
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">1.yetenek
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text"  name="css"  required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text"  name="first_skill" value="<?php echo $fetch['first_skill']; ?>" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                      
                       
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">JAVA
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">2.yetenek
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text"  name="java"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text"  name="second_skill" value="<?php echo $fetch['second_skill']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">HTML 
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">3.yetenek
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text"  name="html"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text"  name="third_skill" value="<?php echo $fetch['third_skill']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">C 
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">4.yetenek
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text"  name="c"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text"  name="forth_skill" value="<?php echo $fetch['forth_skill']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Problem Çözme
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">5.yetenek
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text"  name="problem çözme"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text"  name="fifth_skill" value="<?php echo $fetch['fifth_skill']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Pyhton
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">6.yetenek
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text"  name="pyhton"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text"  name="sixth_skill" value="<?php echo $fetch['sixth_skill']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -86,57 +127,66 @@ include 'header.php';
                       
                       
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">CSS Sayaç
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">1.yetenek sayaç
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text"  name="css_counter"  required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text"  name="first_counter" value="<?php echo $fetch['first_counter']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                      
                       
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">JAVA Sayaç
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">2.yetenek sayaç
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text"  name="java_counter"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text"  name="second_counter" value="<?php echo $fetch['second_counter']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">HTML Sayaç
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">3.yetenek sayaç
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text"  name="html_counter"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text"  name="third_counter" value="<?php echo $fetch['third_counter']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">C Sayaç
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">4.yetenek sayaç
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text"  name="c_counter"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text"  name="forth_counter" value="<?php echo $fetch['forth_counter']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Problem Çözme Sayaç
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">5.yetenek sayaç
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text"  name="problem çözme_counter"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text"  name="fifth_counter" value="<?php echo $fetch['fifth_counter']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Pyhton Sayaç
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">6.yetenek sayaç
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text"  name="pyhton_counter"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text"  name="sixth_counter" value="<?php echo $fetch['sixth_counter']; ?>"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
-
+                      
                       
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
                           <button type="reset" class="btn btn-round btn-danger">Temizle</button>
-                          <button  type="submit" class="btn btn-round btn-primary" name="skill_save">Gönder</button>
+
+                          <?php
+                          if($control_skill == 1) { ?>
+                             <button  type="submit" class="btn btn-round btn-primary" name="update_skills">Güncelle</button>
+
+                          <?php } else { ?>
+                             <button  type="submit" class="btn btn-round btn-primary" name="insert_skills">Ekle</button>
+                          <?php } ?>
+                          
+                          
                         </div>
                       </div>
                     </form>
