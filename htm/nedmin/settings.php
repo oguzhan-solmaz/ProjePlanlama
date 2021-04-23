@@ -95,7 +95,7 @@ $fetchsettings = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Şifre
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="page content"  required="required" type="password">
+                          <input class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="password"  required="required" type="password">
                         </div>
                       </div>
                       
@@ -103,7 +103,7 @@ $fetchsettings = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Şifre Tekrarı
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="password"  name="xadad"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="password"  name="password2"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       
