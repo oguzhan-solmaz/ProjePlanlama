@@ -268,6 +268,7 @@ if (isset($_POST['insert_about'])) {
     $facebook = $_POST['facebook'];
     $twitch = $_POST['twitch'];
     $biyografi = $_POST['biyografi'];
+    $picturee = $_POST['picturee'];
 
 
     $insert_about = $db->prepare("INSERT INTO about_me SET 
@@ -278,7 +279,8 @@ if (isset($_POST['insert_about'])) {
             instagram = '$instagram',
             facebook = '$facebook',
             twitch = '$twitch',
-            biyografi = '$biyografi'
+            biyografi = '$biyografi',
+            picturee = '$picturee'
        
 
         ");
@@ -301,6 +303,8 @@ if (isset($_POST['update_about'])) {
     $facebook = $_POST['facebook'];
     $twitch = $_POST['twitch'];
     $biyografi = $_POST['biyografi'];
+    $picturee = $_POST['picturee'];
+    
 
 
     $update_about = $db->prepare("UPDATE about_me SET 
@@ -311,7 +315,8 @@ if (isset($_POST['update_about'])) {
             instagram = '$instagram',
             facebook = '$facebook',
             twitch = '$twitch',
-            biyografi = '$biyografi' WHERE about_id=1
+            biyografi = '$biyografi',
+            picturee = '$picturee' WHERE about_id=1
             ");
     $updateabout = $update_about->execute();
 
@@ -357,7 +362,7 @@ if (isset($_POST['update_settings'])) {
     $password = $_POST['password'];
     $password2 = $_POST['password2'];
     if($password == $password2){ //32
-        if($password >= 6){
+        if(strlen($password) >= 6){
             $pass1 = crc32($password);
             $admin_newPassword = $db -> prepare("UPDATE user SET password='$pass1' ");
             $updatePass=$admin_newPassword -> execute();
