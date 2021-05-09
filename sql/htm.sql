@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 23 Nis 2021, 13:13:06
+-- Üretim Zamanı: 09 May 2021, 12:30:31
 -- Sunucu sürümü: 10.4.18-MariaDB
 -- PHP Sürümü: 8.0.3
 
@@ -45,7 +45,7 @@ CREATE TABLE `about_me` (
 --
 
 INSERT INTO `about_me` (`about_id`, `about_title`, `github`, `twitter`, `youtube`, `instagram`, `facebook`, `twitch`, `biyografi`, `picturee`) VALUES
-(1, 'Hakkımda', 'oguzhan-solmaz', 'oguzhansolmaz20', 'UCrm9kPTkH30kjhCnUqICDvw', 'oguz_solmaz', 'oguzhan.solmaz.353', 'redpappers', 'Merhaba ben Oğuzhan Solmaz 21 yaşındayım malatyada yaşıyorum. İnönü Üniversitesi Bilgisayar Mühendisliği bölümü birinci sınıf öğrencisiyim. Boş zamanlarımda kitap okumak, film izlemek ve oyun oynamaktan keyif alıyorum.', '');
+(1, 'Hakkımda', 'x', 'y', 'z', 'oguz_solmazz', 'oguzhan.solmaz.3533', 'redpapperss', 'Merhaba ben Oğuzhan Solmaz 21 yaşındayım malatyada yaşıyorum. İnönü Üniversitesi Bilgisayar Mühendisliği bölümü birinci sınıf öğrencisiyim. Boş zamanlarımda kitap okumak, film izlemek ve oyun oynamaktan keyif alıyorum.', 'xsx.JPEG');
 
 -- --------------------------------------------------------
 
@@ -67,7 +67,7 @@ CREATE TABLE `contact_info` (
 --
 
 INSERT INTO `contact_info` (`contact_id`, `content`, `email`, `copyright`, `gsm`, `adress`) VALUES
-(1, 'İletişim Bilgilerim', 'oguzhan_solmazzz@hotmail.com', 'OGUZ', 2147483647, 'CENGİZ TOPEL Caddesi');
+(1, 'İletişim Bilgilerim sayfası', 'oguzhan_solmazzz@hotmail.com', 'OĞUZHAN', 234248724, 'Cengiz Topel Caddesi');
 
 -- --------------------------------------------------------
 
@@ -87,7 +87,7 @@ CREATE TABLE `education_info` (
 --
 
 INSERT INTO `education_info` (`edu_title`, `edu_id`, `high_school`, `universty`) VALUES
-('Eğitim Bilgilerim', 1, 'Cumhuriyet Anadolu Lisesi', 'İnönü Üniversitesi');
+('Eğitim Bilgilerim ', 1, 'Cumhuriyet Anadolu Lisesi', 'İnönü Üniversitesi');
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ CREATE TABLE `site_settings` (
 --
 
 INSERT INTO `site_settings` (`settings_id`, `site_title`, `title`, `subtitle`) VALUES
-(1, 'benim projem', 'Oğuzhan Solmaz', 'Merhaba ben Oğuzhan Solmaz. İnönü Üniversitesinde birinci sınıf, Bilgisayar Mühendisliği öğrencisiyim');
+(1, 'Proje Planlama', 'Oğuzhan Solmaz', 'Merhaba ben Oğuzhan Solmaz. İnönü Üniversitesinde birinci sınıf, Bilgisayar Mühendisliği öğrencisiyim');
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,7 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`skill_id`, `title`, `first_skill`, `second_skill`, `third_skill`, `forth_skill`, `fifth_skill`, `sixth_skill`, `first_counter`, `second_counter`, `third_counter`, `forth_counter`, `fifth_counter`, `sixth_counter`) VALUES
-(1, 'acıklama1', 'javaa', 'html', 'css', 'c', 'matlab', 'phytonn', '70', '50', '40', '70', '10', '10');
+(1, 'Yeteneklerim', 'java', 'html', 'css', 'c++', 'matlaba', 'python', '30%', '40%', '90%', '20%', '90%', '80%');
 
 -- --------------------------------------------------------
 
@@ -157,7 +157,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_name`, `email`, `password`) VALUES
-(42, 'oğuzhan', 'oguzhan_solmazz@hotmail.com', '158520161');
+(1, 'oğuzhan', 'oguzhan_solmazz@hotmail.com', '158520161');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
