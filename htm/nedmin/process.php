@@ -304,7 +304,7 @@ if (isset($_POST['update_about'])) {
     $twitch = $_POST['twitch'];
     $biyografi = $_POST['biyografi'];
     $picturee = $_POST['picturee'];
-    
+
 
 
     $update_about = $db->prepare("UPDATE about_me SET 
@@ -360,15 +360,24 @@ if (isset($_POST['update_settings'])) {
     $title = $_POST['title'];
     $subtitle = $_POST['subtitle'];
     $password = $_POST['password'];
-    $password2 = $_POST['password2'];
-    if($password == $password2){ //32
-        if(strlen($password) >= 6){
-            $pass1 = crc32($password);
-            $admin_newPassword = $db -> prepare("UPDATE user SET password='$pass1' ");
-            $updatePass=$admin_newPassword -> execute();
-        }
-    }
+    $newpassword = $_POST['newpassword'];
+    $newpassword2 = $_POST['newpassword2'];
+    $pass2 = crc32($password);
+    $chancepass = $db->prepare("SELECT *FROM user WHERE user_id=1 AND password= '$pass2'");
 
+    $chancepass->execute();
+    $countt = $chancepass->rowCount();
+    if($countt == 1){
+        $pass3 = crc32($newpassword);
+        if(!($pass2==$pass3)){
+            if($newpassword == $newpassword2){
+                if(strlen($newpassword) >= 6){
+                    $pass1 = crc32($newpassword);
+                    $admin_newPassword = $db -> prepare("UPDATE user SET password='$pass1' ");
+                    $updatePass=$admin_newPassword -> execute();
+                }
+            }
+        }
 
 
     $update_settings = $db->prepare("UPDATE site_settings SET 
@@ -379,9 +388,9 @@ if (isset($_POST['update_settings'])) {
     $updatesettings = $update_settings->execute();
 
     if ($updatesettings and $updatePass) {
-        header("Location: settings.php?updatesettings=ok");
+        header("Location: logout.php");
     } else {
         header("Location: settings.php?updatesettings=no");
     }
 }
-
+}

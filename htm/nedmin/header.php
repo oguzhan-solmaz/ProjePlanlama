@@ -1,7 +1,11 @@
 <?php
+
 ob_start();
 session_start();
 include 'connect.php';
+if(!isset($_SESSION['user_name'])){
+  header("Location: login.php");
+}
 
 $user_name = $_SESSION['user_name'];
 $query = $db -> prepare("SELECT * FROM user WHERE user_name='$user_name'");
