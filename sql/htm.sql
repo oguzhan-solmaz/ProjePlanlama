@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 13 Haz 2021, 11:06:10
+-- Üretim Zamanı: 13 Haz 2021, 11:48:16
 -- Sunucu sürümü: 10.4.18-MariaDB
 -- PHP Sürümü: 8.0.3
 
@@ -137,7 +137,7 @@ CREATE TABLE `skills` (
 --
 
 INSERT INTO `skills` (`skill_id`, `title`, `first_skill`, `second_skill`, `third_skill`, `forth_skill`, `fifth_skill`, `sixth_skill`, `first_counter`, `second_counter`, `third_counter`, `forth_counter`, `fifth_counter`, `sixth_counter`) VALUES
-(1, 'Yeteneklerim', 'java', 'html', 'css', 'c++', 'matlaba', 'python', '30%', '40%', '90%', '20%', '90%', '80%');
+(1, 'Yeteneklerim', 'java', 'html', 'css', 'c++', 'matlab', 'python', '30%', '40%', '90%', '20%', '90%', '80%');
 
 -- --------------------------------------------------------
 
