@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 09 May 2021, 12:30:31
+-- Üretim Zamanı: 13 Haz 2021, 09:46:57
 -- Sunucu sürümü: 10.4.18-MariaDB
 -- PHP Sürümü: 8.0.3
 
@@ -157,7 +157,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_name`, `email`, `password`) VALUES
-(1, 'oğuzhan', 'oguzhan_solmazz@hotmail.com', '158520161');
+(1, 'admin', 'oguzhan_solmazz@hotmail.com', '3304547909');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
