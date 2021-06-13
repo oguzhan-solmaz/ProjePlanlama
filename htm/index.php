@@ -49,18 +49,16 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
    <!-- CSS
     ================================================== -->
-   <link rel="stylesheet" href="css/default.css">
-   <link rel="stylesheet" href="css/layout.css">
-   <link rel="stylesheet" href="css/media-queries.css">
-   <link rel="stylesheet" href="css/magnific-popup.css">
+   <link rel="stylesheet" href="assets/css/default.css">
+   <link rel="stylesheet" href="assets/css/layout.css">
+   <link rel="stylesheet" href="assets/css/media-queries.css">
+   <link rel="stylesheet" href="assets/css/magnific-popup.css">
 
    <!-- Script
    ================================================== -->
-   <script src="js/modernizr.js"></script>
+   <script src="assets/js/modernizr.js"></script>
 
-   <!-- Favicons
-	================================================== -->
-   <link rel="shortcut icon" href="favicon.png">
+
 
    <style>
       * {
@@ -71,11 +69,12 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
          width: 100%;
          background-color: white;
 
-      } 
+      }
+
       .container h4 {
          font-size: 20px;
          text-transform: uppercase;
-         margin-top:15px ;
+         margin-top: 15px;
       }
 
       .skills {
@@ -104,10 +103,12 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
          width: <?php echo $fetch_s['forth_counter']; ?>;
          background-color: #2196F3;
       }
+
       .fifth {
          width: <?php echo $fetch_s['fifth_counter']; ?>;
          background-color: #2196F3;
       }
+
       .sixth {
          width: <?php echo $fetch_s['sixth_counter']; ?>;
          background-color: #2196F3;
@@ -146,12 +147,12 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                Daha fazlası için <a class="smoothscroll" href="#about">Hakkımda</a>.</h3>
             <hr />
             <ul class="social">
-               <li><a href="https://github.com/<?php echo $fetch_a['github']; ?>"><img src="./images/g.png" style="width: 40px;" alt="github"></a></li>
-               <li><a href="https://twitter.com/<?php echo $fetch_a['twitter']; ?>"><img src="./images/t.png" style="width: 40px;"></a></li>
-               <li><a href="https://www.youtube.com/channel/<?php echo $fetch_a['youtube']; ?>"><img src="./images/y.png" style="width: 40px;"></a></li>
-               <li><a href="https://www.instagram.com/<?php echo $fetch_a['instagram']; ?>/?hl=tr"><img src="./images/i.png" style="width: 40px;"></a></li>
-               <li><a href="https://tr-tr.facebook.com/<?php echo $fetch_a['facebook']; ?>"><img src="./images/f.png" style="width: 40px;"></a></li>
-               <li><a href="https://www.twitch.tv/<?php echo $fetch_a['twitch']; ?>"><img src="./images/tw.png" style="width: 40px;"></a></li>
+               <li><a href="https://github.com/<?php echo $fetch_a['github']; ?>"><img src="assets/images/g.png" style="width: 40px;" alt="github"></a></li>
+               <li><a href="https://twitter.com/<?php echo $fetch_a['twitter']; ?>"><img src="assets/images/t.png" style="width: 40px;"></a></li>
+               <li><a href="https://www.youtube.com/channel/<?php echo $fetch_a['youtube']; ?>"><img src="assets/images/y.png" style="width: 40px;"></a></li>
+               <li><a href="https://www.instagram.com/<?php echo $fetch_a['instagram']; ?>/?hl=tr"><img src="assets/images/i.png" style="width: 40px;"></a></li>
+               <li><a href="https://tr-tr.facebook.com/<?php echo $fetch_a['facebook']; ?>"><img src="assets/images/f.png" style="width: 40px;"></a></li>
+               <li><a href="https://www.twitch.tv/<?php echo $fetch_a['twitch']; ?>"><img src="assets/images/tw.png" style="width: 40px;"></a></li>
 
             </ul>
          </div>
@@ -172,7 +173,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
          <div class="three columns">
 
-            <img class="profile-pic" src="images/inonu1.jpg " style="width:150px;height: 200px" alt="" style />
+            <img class="profile-pic" src="assets/images/inonu1.jpg " style="width:150px;height: 200px" alt="" style />
 
          </div>
 
@@ -190,9 +191,9 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                   <h2>İletişim Detayları</h2>
                   <p class="address">
 
-                     <span>Cengiz Topel Caddesi, Malatya</span><br>
-                     <a href="tel:+90-531-300-0544">531 300 05 44</a>
-                     <a href="mailto:oguzhan_solmazz@hotmail.com">oguzhan_solmazz@hotmail.com</a>
+                     <span><?php echo $fetch_c['adress']; ?></span><br>
+                     <a href="tel:<?php echo $fetch_c['gsm']; ?>"><?php echo $fetch_c['gsm']; ?></a>
+                     <a href="mailto:<?php echo $fetch_c['email']; ?>"><?php echo $fetch_c['email']; ?></a>
                   </p>
 
                </div>
@@ -264,52 +265,49 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
       ----------------------------------------------- -->
       <div class="row skill">
 
-         <div  class="three columns header-col">
+         <div class="three columns header-col">
             <h1><span><?php echo $fetch_s['title']; ?></span></h1>
          </div>
-         
-         
-
          <div class="nine columns main-col">
-        
-         
-  
- 
-            
 
 
 
 
 
-          <div class="container">
-            <h4><?php echo $fetch_s['first_skill']; ?></h4>
-            
+
+
+
+
+
+            <div class="container">
+               <h4><?php echo $fetch_s['first_skill']; ?></h4>
+
                <div class="skills first"><?php echo $fetch_s['first_counter']; ?></div>
             </div>
             <div class="container">
-            <h4><?php echo $fetch_s['second_skill']; ?></h4>
-            
+               <h4><?php echo $fetch_s['second_skill']; ?></h4>
+
                <div class="skills second"><?php echo $fetch_s['second_counter']; ?></div>
             </div>
 
             <div class="container">
-            <h4><?php echo $fetch_s['third_skill']; ?></h4>
-            
+               <h4><?php echo $fetch_s['third_skill']; ?></h4>
+
                <div class="skills third"><?php echo $fetch_s['third_counter']; ?></div>
             </div>
             <div class="container">
-            <h4><?php echo $fetch_s['forth_skill']; ?></h4>
-            
+               <h4><?php echo $fetch_s['forth_skill']; ?></h4>
+
                <div class="skills forth"><?php echo $fetch_s['forth_counter']; ?></div>
             </div>
             <div class="container">
-            <h4><?php echo $fetch_s['fifth_skill']; ?></h4>
-            
+               <h4><?php echo $fetch_s['fifth_skill']; ?></h4>
+
                <div class="skills fifth"><?php echo $fetch_s['fifth_counter']; ?></div>
             </div>
             <div class="container">
-            <h4><?php echo $fetch_s['sixth_skill']; ?></h4>
-            
+               <h4><?php echo $fetch_s['sixth_skill']; ?></h4>
+
                <div class="skills sixth"><?php echo $fetch_s['sixth_counter']; ?></div>
             </div>
          </div><!-- end skill-bars -->
@@ -338,7 +336,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                   <div class="item-wrap">
 
                      <a href="#modal-01" title="">
-                        <img alt="" src="images/portfolio/coffee.jpg">
+                        <img alt="" src="assets/images/portfolio/coffee.jpg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
                               <h5>Coffee</h5>
@@ -355,7 +353,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                   <div class="item-wrap">
 
                      <a href="#modal-02" title="">
-                        <img alt="" src="images/portfolio/console.jpg">
+                        <img alt="" src="assets/images/portfolio/console.jpg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
                               <h5>Console</h5>
@@ -372,7 +370,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                   <div class="item-wrap">
 
                      <a href="#modal-03" title="">
-                        <img alt="" src="images/portfolio/judah.jpg">
+                        <img alt="" src="assets/images/portfolio/judah.jpg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
                               <h5>Judah</h5>
@@ -389,7 +387,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                   <div class="item-wrap">
 
                      <a href="#modal-04" title="">
-                        <img alt="" src="images/portfolio/into-the-light.jpg">
+                        <img alt="" src="assets/images/portfolio/into-the-light.jpg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
                               <h5>Into The Light</h5>
@@ -406,7 +404,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                   <div class="item-wrap">
 
                      <a href="#modal-05" title="">
-                        <img alt="" src="images/portfolio/farmerboy.jpg">
+                        <img alt="" src="assets/images/portfolio/farmerboy.jpg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
                               <h5>Farmer Boy</h5>
@@ -423,7 +421,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                   <div class="item-wrap">
 
                      <a href="#modal-06" title="">
-                        <img alt="" src="images/portfolio/girl.jpg">
+                        <img alt="" src="assets/images/portfolio/girl.jpg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
                               <h5>Girl</h5>
@@ -440,7 +438,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                   <div class="item-wrap">
 
                      <a href="#modal-07" title="">
-                        <img alt="" src="images/portfolio/origami.jpg">
+                        <img alt="" src="assets/images/portfolio/origami.jpg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
                               <h5>Origami</h5>
@@ -457,7 +455,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                   <div class="item-wrap">
 
                      <a href="#modal-08" title="">
-                        <img alt="" src="images/portfolio/retrocam.jpg">
+                        <img alt="" src="assets/images/portfolio/retrocam.jpg">
                         <div class="overlay">
                            <div class="portfolio-item-meta">
                               <h5>Retrocam</h5>
@@ -480,7 +478,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
          <div id="modal-01" class="popup-modal mfp-hide">
 
-            <img class="scale-with-grid" src="images/portfolio/modals/m-coffee.jpg" alt="" />
+            <img class="scale-with-grid" src="assets/images/portfolio/modals/m-coffee.jpg" alt="" />
 
             <div class="description-box">
                <h4>Coffee Cup</h4>
@@ -497,7 +495,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
          <div id="modal-02" class="popup-modal mfp-hide">
 
-            <img class="scale-with-grid" src="images/portfolio/modals/m-console.jpg" alt="" />
+            <img class="scale-with-grid" src="assets/images/portfolio/modals/m-console.jpg" alt="" />
 
             <div class="description-box">
                <h4>Console</h4>
@@ -514,7 +512,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
          <div id="modal-03" class="popup-modal mfp-hide">
 
-            <img class="scale-with-grid" src="images/portfolio/modals/m-judah.jpg" alt="" />
+            <img class="scale-with-grid" src="assets/images/portfolio/modals/m-judah.jpg" alt="" />
 
             <div class="description-box">
                <h4>Judah</h4>
@@ -531,7 +529,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
          <div id="modal-04" class="popup-modal mfp-hide">
 
-            <img class="scale-with-grid" src="images/portfolio/modals/m-intothelight.jpg" alt="" />
+            <img class="scale-with-grid" src="assets/images/portfolio/modals/m-intothelight.jpg" alt="" />
 
             <div class="description-box">
                <h4>Into the Light</h4>
@@ -548,7 +546,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
          <div id="modal-05" class="popup-modal mfp-hide">
 
-            <img class="scale-with-grid" src="images/portfolio/modals/m-farmerboy.jpg" alt="" />
+            <img class="scale-with-grid" src="assets/images/portfolio/modals/m-farmerboy.jpg" alt="" />
 
             <div class="description-box">
                <h4>Farmer Boy</h4>
@@ -565,7 +563,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
          <div id="modal-06" class="popup-modal mfp-hide">
 
-            <img class="scale-with-grid" src="images/portfolio/modals/m-girl.jpg" alt="" />
+            <img class="scale-with-grid" src="assets/images/portfolio/modals/m-girl.jpg" alt="" />
 
             <div class="description-box">
                <h4>Girl</h4>
@@ -582,7 +580,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
          <div id="modal-07" class="popup-modal mfp-hide">
 
-            <img class="scale-with-grid" src="images/portfolio/modals/m-origami.jpg" alt="" />
+            <img class="scale-with-grid" src="assets/images/portfolio/modals/m-origami.jpg" alt="" />
 
             <div class="description-box">
                <h4>Origami</h4>
@@ -599,7 +597,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
 
          <div id="modal-08" class="popup-modal mfp-hide">
 
-            <img class="scale-with-grid" src="images/portfolio/modals/m-retrocam.jpg" alt="" />
+            <img class="scale-with-grid" src="assets/images/portfolio/modals/m-retrocam.jpg" alt="" />
 
             <div class="description-box">
                <h4>Retrocam</h4>
@@ -732,7 +730,7 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
                   <div>
                      <button class="submit">Gönder</button>
                      <span id="image-loader">
-                        <img alt="" src="images/loader.gif">
+                        <img alt="" src="assets/images/loader.gif">
                      </span>
                   </div>
 
@@ -787,12 +785,12 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
          <div class="twelve columns">
 
             <ul class="social-links">
-               <li><a href="https://github.com/oguzhan-solmaz"><img src="./images/g.png" style="width: 40px;"></a></li>
-               <li><a href="#"><img src="./images/t.png" style="width: 40px;"></a></li>
-               <li><a href="#"><img src="./images/y.png" style="width: 40px;"></a></li>
-               <li><a href="https://www.instagram.com/oguz_solmaz/?hl=tr"><img src="./images/i.png" style="width: 40px;"></a></li>
-               <li><a href="#"><img src="./images/f.png" style="width: 40px;"></a></li>
-               <li><a href="#"><img src="./images/tw.png" style="width: 40px;"></a></li>
+               <li><a href="https://github.com/oguzhan-solmaz"><img src="assets/images/g.png" style="width: 40px;"></a></li>
+               <li><a href="#"><img src="assets/images/t.png" style="width: 40px;"></a></li>
+               <li><a href="#"><img src="assets/images/y.png" style="width: 40px;"></a></li>
+               <li><a href="https://www.instagram.com/oguz_solmaz/?hl=tr"><img src="assets/images/i.png" style="width: 40px;"></a></li>
+               <li><a href="#"><img src="assets/images/f.png" style="width: 40px;"></a></li>
+               <li><a href="#"><img src="assets/images/tw.png" style="width: 40px;"></a></li>
 
             </ul>
 
@@ -814,15 +812,15 @@ $fetch_se = $fetch_settings->fetch(PDO::FETCH_ASSOC);
    ================================================== -->
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
    <script>
-      window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')
+      window.jQuery || document.write('<script src="assets/assets/js/jquery-1.10.2.min.js"><\/script>')
    </script>
-   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+   <script type="text/javascript" src="assets/js/jquery-migrate-1.2.1.min.js"></script>
 
-   <script src="js/jquery.flexslider.js"></script>
-   <script src="js/waypoints.js"></script>
-   <script src="js/jquery.fittext.js"></script>
-   <script src="js/magnific-popup.js"></script>
-   <script src="js/init.js"></script>
+   <script src="assets/js/jquery.flexslider.js"></script>
+   <script src="assets/js/waypoints.js"></script>
+   <script src="assets/js/jquery.fittext.js"></script>
+   <script src="assets/js/magnific-popup.js"></script>
+   <script src="assets/js/init.js"></script>
 
 </body>
 
