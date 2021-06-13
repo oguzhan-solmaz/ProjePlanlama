@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 13 Haz 2021, 09:46:57
+-- Üretim Zamanı: 13 Haz 2021, 11:06:10
 -- Sunucu sürümü: 10.4.18-MariaDB
 -- PHP Sürümü: 8.0.3
 
@@ -58,7 +58,7 @@ CREATE TABLE `contact_info` (
   `content` varchar(250) NOT NULL,
   `email` varchar(50) NOT NULL,
   `copyright` varchar(50) NOT NULL,
-  `gsm` int(11) NOT NULL,
+  `gsm` varchar(13) NOT NULL,
   `adress` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -67,7 +67,7 @@ CREATE TABLE `contact_info` (
 --
 
 INSERT INTO `contact_info` (`contact_id`, `content`, `email`, `copyright`, `gsm`, `adress`) VALUES
-(1, 'İletişim Bilgilerim sayfası', 'oguzhan_solmazzz@hotmail.com', 'OĞUZHAN', 234248724, 'Cengiz Topel Caddesi');
+(1, 'İletişim Bilgilerim sayfası', 'oguzhan_solmazzz@hotmail.com', 'OĞUZHAN', '5313000544', 'Cengiz Topel Caddesi /Malatya');
 
 -- --------------------------------------------------------
 
